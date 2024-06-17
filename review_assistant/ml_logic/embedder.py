@@ -1,5 +1,6 @@
 from hashlib import sha1
-from langchain_community.embeddings import HuggingFaceEmbeddings
+#from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
 from langchain.schema.document import Document
 from langchain_community.vectorstores import Chroma
 from langchain_openai import OpenAIEmbeddings
