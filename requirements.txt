@@ -1,0 +1,8 @@
+chromadb
+fastapi
+gpt4all
+langchain-openai
+langchain-text-splitters
+python-dotenv
+uvicorn
+sentence-transformers
