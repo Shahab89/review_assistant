@@ -14,13 +14,15 @@ def generate_criteria(product_txt: str, model: BaseLanguageModel) -> list[str]:
     return criteria
 
 
-def generate_reviews(product: str, rated_criteria: dict[str, int], model: BaseLanguageModel) -> str:
+def generate_reviews(product: str, rated_criteria: dict[str, int], model: BaseLanguageModel, language = 'English') -> str:
     reviews_input = build_reviews_input(product, rated_criteria)
     vector_db = embed_text(reviews_input, MODE_STEP_2)
     chain = build_chain(model, vector_db)
-    result = invoke(chain, PROMPT_2)
+    prompt = PROMPT_2 + f'The review(s) must be in {language}'
+    result = invoke(chain, prompt)
     reviews = parse_reviews(result)
     return reviews
+
 
 
 if __name__ == '__main__':

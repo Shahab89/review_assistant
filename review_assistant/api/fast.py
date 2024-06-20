@@ -32,14 +32,18 @@ def get_criteria(product: str) -> list[str]:
     criteria = generate_criteria(product, app.state.model_1)
     return criteria
 
+@app.get('/language')
+def select_language(language: str):
+    return language
 
 @app.post("/reviews")
-def get_reviews(product: str, rated_criteria: str) -> list[str]:
+def get_reviews(product: str, rated_criteria: str, language : str) -> list[str]:
     rated_criteria = json.loads(rated_criteria)
-    reviews = generate_reviews(product, rated_criteria, app.state.model_2)
+
+    reviews = generate_reviews(product, rated_criteria, app.state.model_2, language)
     return reviews
 
 
 @app.get("/")
 def root() -> str:
-    return "Review Writing Assistant API. See endpoint /docs for documentation."
+    return "Intelligent Review Builder API. See endpoint /docs for documentation."

@@ -24,6 +24,7 @@ PROMPT_2 = f"Based on the given product title and ratings provided, generate {NU
     " explicitly referring to the fact that the review is based on a rating or" \
     " provided information. At least 4 sentences."
 
+LANGUAGE = os.environ.get('LANGUAGE')
 ##################  CONSTANTS  ##################
 MODEL_DIR = "models"
 CHROMA_PERSIST_DIR = os.path.join('db', 'chroma_3')
